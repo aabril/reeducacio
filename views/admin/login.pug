@@ -8,10 +8,10 @@ html
   body
     #card
       .content
-        form(action='/admin/login', method="POST", autocomplete="new-password")
+        form(action='/admin/login', method="POST")
           input(type='hidden', name='_csrf', value=_csrf)
-          input(type='email', name='admin_email', placeholder="vicent@gmail.com", autocomplete="new-password", onfocus="this.removeAttribute('readonly');" style="margin-bottom: 10px;")
-          input(type='password', name='admin_password', placeholder="contrasenya", autocomplete="new-password")
+          input(type='email', name='email', placeholder="vicent@gmail.com", autocomplete="off", style="margin-bottom: 10px;")
+          input(type='password', name='password', placeholder="contrasenya", autocomplete="off")
           input(type='checkbox', name='check', checked='')
           label(for='check') Manten-me autenticat
           button Sign in

@@ -1,4 +1,5 @@
 const passport = require('passport');
+const User = require('../models/User');
 
 exports.loginGet = (req, res) => {
   if(req.user && req.user.role==="admin"){
@@ -14,6 +15,11 @@ exports.loginPost = (req, res, next) => {
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ remove_dots: false });
+
+  console.log("=====");
+  console.log("loginPost");
+  console.log(req.body);
+  console.log("=====");
 
   const errors = req.validationErrors();
 
@@ -61,7 +67,7 @@ exports.dashboard = (req, res) => {
 
 
 exports.users = (req, res) => {
-    res.redirect('/admin/login');
+    res.render('admin/users', { section: 'users'});
 };
 
 exports.articles = (req, res) => {
