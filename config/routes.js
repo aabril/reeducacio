@@ -22,7 +22,13 @@ module.exports = function(app){
     app.get('/', homeController.index);
 
     app.get('/admin', adminController.dashboard);
+
     app.get('/admin/dashboard', adminController.dashboard);
+    app.get('/admin/users', adminController.users);
+    app.get('/admin/articles', adminController.articles);
+    app.get('/admin/rewards', adminController.rewards);
+    app.get('/admin/settings', adminController.settings);
+
     app.get('/admin/login', adminController.loginGet);
     app.post('/admin/login', adminController.loginPost);
     

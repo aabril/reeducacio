@@ -9,7 +9,6 @@ exports.dashboard = (req, res) => {
 };
 
 exports.loginGet = (req, res) => {
-
   if(req.user && req.user.role==="admin"){
     res.redirect('/admin');
   }else{
@@ -17,9 +16,6 @@ exports.loginGet = (req, res) => {
       title: 'Admin'
     });
   }
-
-
-
 };
 
 exports.loginPost = (req, res) => {
@@ -50,3 +46,37 @@ exports.loginPost = (req, res) => {
     });
   })(req, res, next);
 };
+
+
+exports.users = (req, res) => {
+  if(req.user && req.user.role==="admin"){
+    res.render('admin/dashboard', { title: 'Admin' });
+  }else{
+    res.redirect('/admin/login');
+  }
+};
+
+exports.articles = (req, res) => {
+  if(req.user && req.user.role==="admin"){
+    res.render('admin/dashboard', { title: 'Admin' });
+  }else{
+    res.redirect('/admin/login');
+  }
+};
+
+exports.rewards = (req, res) => {
+  if(req.user && req.user.role==="admin"){
+    res.render('admin/dashboard', { title: 'Admin' });
+  }else{
+    res.redirect('/admin/login');
+  }
+};
+
+exports.settings = (req, res) => {
+  if(req.user && req.user.role==="admin"){
+    res.render('admin/dashboard', { title: 'Admin' });
+  }else{
+    res.redirect('/admin/login');
+  }
+};
+

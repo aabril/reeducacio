@@ -79,6 +79,9 @@ exports.postSignup = (req, res, next) => {
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
+  console.log("postSignup");
+  console.log(req.body);
+  
   const errors = req.validationErrors();
 
   if (errors) {
