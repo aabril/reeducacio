@@ -1,0 +1,12 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      include header/navbartoggle
+      a.navbar-brand(href='/')
+        i.fa.fa-cube
+        | REEDUCACIO
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        include header/menu
+      ul.nav.navbar-nav.navbar-right
+        include header/useractions
