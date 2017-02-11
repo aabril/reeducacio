@@ -62,32 +62,32 @@ exports.loginPost = (req, res, next) => {
 
 
 exports.dashboard = (req, res) => {
-    res.render('admin/dashboard', { section: 'dashboard'});
+    res.render('admin/dashboard/index', { section: 'dashboard'});
 };
 
 
 exports.users = (req, res) => {
-    res.render('admin/users', { section: 'users'});
+    res.render('admin/users/index', { section: 'users'});
 };
 
 exports.articles = (req, res) => {
   const renderVars = {
     section: 'articles'
   }
-  res.render('admin/articles', renderVars);
+  res.render('admin/articles/index', renderVars);
 };
 
 exports.rewards = (req, res) => {
   const renderVars = {
     section: 'rewards'
   }
-  res.render('admin/rewards', renderVars);
+  res.render('admin/rewards/index', renderVars);
 };
 
 exports.settings = (req, res) => {
   const renderVars = {
     section: 'settings'
   }
-  res.render('admin/settings', renderVars);
+  res.render('admin/settings/index', renderVars);
 };
 
