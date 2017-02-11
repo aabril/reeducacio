@@ -1,0 +1,139 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='icon', type='image/png', href='assets/img/favicon.ico')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Light Bootstrap Dashboard by Creative Tim
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport')
+    meta(name='viewport', content='width=device-width')
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/animate.min.css', rel='stylesheet')
+    link(href='css/light-bootstrap-dashboard.css', rel='stylesheet')
+    link(href='css/demo.css', rel='stylesheet')
+    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Roboto:400,700,300', rel='stylesheet', type='text/css')
+    link(href='css/pe-icon-7-stroke.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-transparent.navbar-absolute
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation-example-2')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand(href='../dashboard.html') Light Bootstrap Dashboard PRO
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='register.html') Register
+    .wrapper.wrapper-full-page
+      .full-page.login-page(data-color='orange', data-image='../../assets/img/full-screen-image-1.jpg')
+        .content
+          .container
+            .row
+              .col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-3
+                form(method='#', action='#')
+                  .card.card-hidden
+                    .header.text-center Login
+                    .content
+                      .form-group
+                        label Email address
+                        |  
+                        input.form-control(type='email', placeholder='Enter email')
+                      .form-group
+                        label Password
+                        |  
+                        input.form-control(type='password', placeholder='Password')
+                      .form-group
+                        label.checkbox
+                          input(type='checkbox', data-toggle='checkbox', value='')
+                          |  Subscribe to newsletter
+                    .footer.text-center
+                      button.btn.btn-fill.btn-warning.btn-wd(type='submit') Login
+        footer.footer.footer-transparent
+          .container
+            nav.pull-left
+              ul
+                li
+                  a(href='#') Home
+                li
+                  a(href='#') Company
+                li
+                  a(href='#') Portfolio
+                li
+                  a(href='#') Blog
+            p.copyright.pull-right
+              | &copy; 2016 
+              a(href='http://www.creative-tim.com') Creative Tim
+              | , made with love for a better web
+    .fixed-plugin
+      .dropdown.show-dropdown
+        a(href='#', data-toggle='dropdown')
+          i.fa.fa-cog.fa-2x
+        ul.dropdown-menu
+          li.header-title Background Style
+          li.adjustments-line
+            a.switch-trigger(href='javascript:void(0)')
+              p Background Image
+              .switch(data-on-label='ON', data-off-label='OFF')
+                input(type='checkbox', checked='')
+              .clearfix
+          li.adjustments-line
+            a.switch-trigger(href='javascript:void(0)')
+              p Filters
+              .pull-right
+                span.badge.filter(data-color='black')
+                span.badge.filter.badge-azure(data-color='azure')
+                span.badge.filter.badge-green(data-color='green')
+                span.badge.filter.badge-orange.active(data-color='orange')
+                span.badge.filter.badge-red(data-color='red')
+                span.badge.filter.badge-purple(data-color='purple')
+              .clearfix
+          li.header-title Sidebar Images
+          li.active
+            a.img-holder.switch-trigger(href='javascript:void(0)')
+              img(src='/light-bootstrap-dashboard-pro/assets/img/full-screen-image-1.jpg')
+          li
+            a.img-holder.switch-trigger(href='javascript:void(0)')
+              img(src='/light-bootstrap-dashboard-pro/assets/img/full-screen-image-2.jpg')
+          li
+            a.img-holder.switch-trigger(href='javascript:void(0)')
+              img(src='/light-bootstrap-dashboard-pro/assets/img/full-screen-image-3.jpg')
+          li
+            a.img-holder.switch-trigger(href='javascript:void(0)')
+              img(src='/light-bootstrap-dashboard-pro/assets/img/full-screen-image-4.jpg')
+          li.button-container
+            div
+              a.btn.btn-info.btn-block(href='http://www.creative-tim.com/product/light-bootstrap-dashboard', target='_blank') Get Free Demo
+            div
+              a.btn.btn-info.btn-block.btn-fill(href='http://www.creative-tim.com/product/light-bootstrap-dashboard-pro', target='_blank') Buy Now!
+          li.header-title Thank you for 452 shares!
+          li.button-container
+            button#twitter.btn.btn-social.btn-twitter.btn-round
+              i.fa.fa-twitter
+              |  &middot; 182
+            |  
+            button#facebook.btn.btn-social.btn-facebook.btn-round
+              i.fa.fa-facebook-square &middot; 270
+  script(src='js/jquery-1.10.2.js', type='text/javascript')
+  script(src='js/bootstrap.min.js', type='text/javascript')
+  script(src='js/bootstrap-checkbox-radio-switch.js')
+  script(src='js/chartist.min.js')
+  script(src='js/bootstrap-notify.js')
+  script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=false')
+  script(src='js/light-bootstrap-dashboard.js')
+  script(src='js/demo.js')
+  script(type='text/javascript').
+    $(document).ready(function(){
+    demo.initChartist();
+    $.notify({
+    icon: 'pe-7s-gift',
+    message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+    },{
+    type: 'info',
+    timer: 4000
+    });
+    });

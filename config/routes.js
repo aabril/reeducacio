@@ -13,12 +13,19 @@ const homeController = require('../controllers/home');
 const userController = require('../controllers/user');
 const apiController = require('../controllers/api');
 const contactController = require('../controllers/contact');
+const adminController = require('../controllers/admin');
 
 module.exports = function(app){
     /**
      * Primary app routes.
      */
     app.get('/', homeController.index);
+
+    app.get('/admin', adminController.dashboard);
+    app.get('/admin/dashboard', adminController.dashboard);
+    app.get('/admin/login', adminController.loginGet);
+    app.post('/admin/login', adminController.loginPost);
+    
     app.get('/login', userController.getLogin);
     app.post('/login', userController.postLogin);
     app.get('/logout', userController.logout);
@@ -30,6 +37,8 @@ module.exports = function(app){
     app.post('/signup', userController.postSignup);
     app.get('/contact', contactController.getContact);
     app.post('/contact', contactController.postContact);
+
+
     app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
     app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
     app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);

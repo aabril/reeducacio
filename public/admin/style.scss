@@ -1,0 +1,149 @@
+//colors
+$color_mercury_approx: #CCFFCC;
+$color_silver_approx: #bdbdbd;
+$color_cloud_burst_90_approx: rgba(37, 49, 85, 0.9);
+$color_revolver_90_approx: rgba(45, 25, 62, 0.9);
+$color_storm_dust_approx: #666;
+$color_mariner_approx: #1b66ea;
+$white: white;
+$color_alto_15_approx: rgba(221, 221, 221, 0.15);
+$color_alto_30_approx: rgba(221, 221, 221, 0.3);
+$color_celeste_70_approx: rgba(204, 204, 204, 0.7);
+
+//fonts
+$font_0: Montserrat;
+$font_1: sans-serif;
+
+//urls
+// $url_1: url(https://images.unsplash.com/photo-1420819453217-57b6badd9e19?crop=entropy&fit=crop&fm=jpg&h=1325&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2575);
+// $url_1: url(https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14364714_174201726351481_2644882790770327059_n.jpg)
+// $url_1: url(http://static1.1.sqspcdn.com/static/f/1099114/16515773/1328834840073/_MG_9261.JPG);
+// $url_1: url(http://greatergood.berkeley.edu/images/uploads/meditating-kids.jpg);
+// $url_1: url(https://mmpschool.files.wordpress.com/2010/11/dsc_0220_41.jpg);
+$url_1: url(http://www.northstaracademymqt.com/wp-content/uploads/2014/09/Hendersonville-Montessori-Color-box-31.jpg);
+
+
+$url_bg: url(http://www.acquadiparma.com/wp-content/uploads/resort_01.jpg);
+
+.cls{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-image: $url_bg;
+	min-width: 100%;
+	min-height: 100%;
+	-webkit-filter: blur(18px);
+	-o-filter: blur(18px);
+	filter: blur(18px);
+	z-index: -100;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/ 0 0 0 50px white inset;
+    -webkit-text-fill-color: #333;
+} 
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body {
+	background: linear-gradient(to bottom left, $color_mercury_approx, $color_silver_approx);
+	width: 100%;
+	min-height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+}
+.clear {
+	clear: both;
+}
+#card {
+	overflow: hidden;
+	width: 400px;
+	height: 500px;
+	background: linear-gradient(to bottom right, $color_cloud_burst_90_approx, $color_revolver_90_approx), $url_1;
+	background-size: cover;
+	background-position: 30% center;
+	margin-left: calc(50vw - 200px);
+	margin-top: calc(50vh - 250px);
+	position: relative;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 10px 20px $color_storm_dust_approx;
+	.content {
+		padding-top: 120px;
+		button {
+			width: 77%;
+			margin: 0 auto;
+			background: $color_mariner_approx;
+			color: $white;
+			display: block;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 20px;
+			border: 0 solid transparent;
+			padding: 10px;
+			font-family: $font_0, $font_1;
+			font-size: .8rem;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .5s;
+			&:hover {
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: scale(1.05, 1.05);
+			}
+		}
+		input {
+			display: block;
+			width: 70%;
+			margin: 0 auto;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 20px;
+			border: 0 solid transparent;
+			background: $color_alto_15_approx;
+			padding: 5px 15px;
+			line-height: 1.5rem;
+			font-size: .8rem;
+			color: $white;
+			font-family: $font_0, $font_1;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .5s;
+			&:focus {
+				background: $color_alto_30_approx;
+			}
+		}
+		input[type="checkbox"] {
+			display: inline-block;
+			width: 10%;
+			margin-left: 15%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			~ label {
+				display: inline-block;
+				width: 60%;
+				margin: 10px -10px;
+				color: $white;
+				text-transform: none;
+			}
+		}
+		label {
+			font-family: $font_0, $font_1;
+			display: block;
+			width: 70%;
+			margin: 15px auto 10px;
+			color: $white;
+			color: $color_celeste_70_approx;
+			font-size: .63rem;
+			text-transform: uppercase;
+		}
+	}
+}
+*:focus {
+	outline: none;
+}

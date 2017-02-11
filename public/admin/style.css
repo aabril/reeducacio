@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.cls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(http://www.acquadiparma.com/wp-content/uploads/resort_01.jpg);
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-filter: blur(18px);
+  -o-filter: blur(18px);
+  filter: blur(18px);
+  z-index: -100;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  /* Change the color to your own background color */
+  -webkit-text-fill-color: #333; }
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: #333; }
+
+body {
+  background: linear-gradient(to bottom left, #CCFFCC, #bdbdbd);
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden; }
+
+.clear {
+  clear: both; }
+
+#card {
+  overflow: hidden;
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(to bottom right, rgba(37, 49, 85, 0.9), rgba(45, 25, 62, 0.9)), url(http://www.northstaracademymqt.com/wp-content/uploads/2014/09/Hendersonville-Montessori-Color-box-31.jpg);
+  background-size: cover;
+  background-position: 30% center;
+  margin-left: calc(50vw - 200px);
+  margin-top: calc(50vh - 250px);
+  position: relative;
+  box-shadow: 0 10px 20px #666; }
+  #card .content {
+    padding-top: 120px; }
+    #card .content button {
+      width: 77%;
+      margin: 0 auto;
+      background: #1b66ea;
+      color: white;
+      display: block;
+      border-radius: 20px;
+      border: 0 solid transparent;
+      padding: 10px;
+      font-family: Montserrat, sans-serif;
+      font-size: .8rem;
+      transition: all .5s; }
+      #card .content button:hover {
+        transform: scale(1.05, 1.05); }
+    #card .content input {
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 0 solid transparent;
+      background: rgba(221, 221, 221, 0.15);
+      padding: 5px 15px;
+      line-height: 1.5rem;
+      font-size: .8rem;
+      color: white;
+      font-family: Montserrat, sans-serif;
+      transition: all .5s; }
+      #card .content input:focus {
+        background: rgba(221, 221, 221, 0.3); }
+    #card .content input[type="checkbox"] {
+      display: inline-block;
+      width: 10%;
+      margin-left: 15%;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+      #card .content input[type="checkbox"] ~ label {
+        display: inline-block;
+        width: 60%;
+        margin: 10px -10px;
+        color: white;
+        text-transform: none; }
+    #card .content label {
+      font-family: Montserrat, sans-serif;
+      display: block;
+      width: 70%;
+      margin: 15px auto 10px;
+      color: white;
+      color: rgba(204, 204, 204, 0.7);
+      font-size: .63rem;
+      text-transform: uppercase; }
+
+*:focus {
+  outline: none; }

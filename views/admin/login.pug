@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title login form Day 001 - #100daysUI
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+    link(rel='stylesheet', href='style.css')
+  body
+    #card
+      .content
+        form(action='/admin/login', method="POST", autocomplete="new-password")
+          input(type='hidden', name='_csrf', value=_csrf)
+          input(type='email', name='admin_email', placeholder="vicent@gmail.com", autocomplete="new-password", onfocus="this.removeAttribute('readonly');" style="margin-bottom: 10px;")
+          input(type='password', name='admin_password', placeholder="contrasenya", autocomplete="new-password")
+          input(type='checkbox', name='check', checked='')
+          label(for='check') Manten-me autenticat
+          button Sign in
+    .clear
+    script(src='index.js')
