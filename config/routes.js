@@ -26,6 +26,7 @@ module.exports = function(app){
     app.get('/admin', authService.isAdmin, adminController.dashboard);
     app.get('/admin/dashboard', authService.isAdmin, adminController.dashboard);
     app.get('/admin/users', authService.isAdmin, adminController.users);
+    app.get('/admin/users/:id', authService.isAdmin, adminController.userEdit);
     app.get('/admin/articles', authService.isAdmin, adminController.articles);
     app.get('/admin/rewards', authService.isAdmin, adminController.rewards);
     app.get('/admin/settings', authService.isAdmin, adminController.settings);

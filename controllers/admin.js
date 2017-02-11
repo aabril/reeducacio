@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('../models/User');
+const moment = require('moment');
 
 exports.loginGet = (req, res) => {
   if(req.user && req.user.role==="admin"){
@@ -67,8 +68,24 @@ exports.dashboard = (req, res) => {
 
 
 exports.users = (req, res) => {
-    res.render('admin/users/index', { section: 'users'});
+  User.find({}, (err, users) => {
+      if (err) { return next(err); }
+      // console.log(users);
+
+      for (i = 0; i < users.length; i++) { 
+        users[i].createdString = moment(users[i].createdAt).format('LLLL');
+      }
+
+      res.render('admin/users/index', { section: 'users', users: users });
+  });
 };
+
+exports.userEdit = (req, res) => {
+  res.render('admin/users/edit', { section: 'users' });
+};
+
+
+
 
 exports.articles = (req, res) => {
   const renderVars = {
