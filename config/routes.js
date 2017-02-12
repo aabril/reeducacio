@@ -14,8 +14,6 @@ const userController = require('../controllers/user');
 const apiController = require('../controllers/api');
 const contactController = require('../controllers/contact');
 const adminController = require('../controllers/admin');
-const panelController = require('../controllers/panel');
-
 
 const authService = require('./authService');
 
@@ -36,8 +34,6 @@ module.exports = function(app){
     app.get('/admin/login', adminController.loginGet);
     app.post('/admin/login', adminController.loginPost);
     
-    app.get('/panel', panelController.index);
-
     app.get('/login', userController.getLogin);
     app.post('/login', userController.postLogin);
     app.get('/logout', userController.logout);

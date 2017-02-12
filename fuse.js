@@ -9,18 +9,17 @@ let fuseBox = new fsbx.FuseBox({
     outFile: panelBundleFile,
     cache: false,
     plugins: [
-        fsbx.SassPlugin({ 
-            // outputStyle: 'compressed' 
-        }),
-        fsbx.CSSPlugin({ write: true }),
+
+        // fsbx.CSSPlugin({ write: true }),
         fsbx.SVGPlugin(),
         // fsbx.UglifyJSPlugin(),
+        [fsbx.LESSPlugin(), fsbx.CSSPlugin()],
         fsbx.BabelPlugin({
             config: {
                 sourceMaps: true,
                 presets: ["latest"],
                 plugins: [
-                    ["transform-react-jsx"]
+                    ["transform-react-jsx", "transform-less"]
                 ]
             }
         })

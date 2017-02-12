@@ -4,14 +4,11 @@ import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-rou
 
 import Sidebar from './components/Sidebar';
 
-
 import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import Articles from './pages/Articles';
 import Rewards from './pages/Rewards';
 import Settings from './pages/Settings';
-
-
 
 class App extends React.Component {
     constructor(props) {
@@ -19,15 +16,15 @@ class App extends React.Component {
     }
     render() {
         return (
-          <div>
-              <Sidebar/>
-              {this.props.children}
+          <div className="container">
+              <div className="row">
+                <Sidebar/>
+                {this.props.children}
+              </div>
           </div>
         );
     }
 }
-
-
 
 const routes = (
     <Router history={hashHistory}>
@@ -43,13 +40,5 @@ const routes = (
         </Route>
     </Router>
 );
-
-// class Panel extends React.Component {
-//   render() {
-//     return (
-//       <h3>panel</h3>
-//     );
-//   }
-// }
 
 ReactDOM.render(routes, document.getElementById('panelApp'));
