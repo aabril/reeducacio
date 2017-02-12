@@ -1,6 +1,9 @@
 const passport = require('passport');
-const User = require('../models/User');
 const moment = require('moment');
+
+const User = require('../models/User');
+const Article = require('../models/Article');
+const Reward = require('../models/Reward');
 
 exports.loginGet = (req, res) => {
   if(req.user && req.user.role==="admin"){
@@ -81,17 +84,17 @@ exports.userEdit = (req, res) => {
 };
 
 exports.articles = (req, res) => {
-  const renderVars = {
-    section: 'articles'
-  }
-  res.render('admin/articles/index', renderVars);
+  Article.find({}, (err, articles) => {
+      if (err) { return next(err); }
+      res.render('admin/articles/index', { section: 'articles', articles: articles });
+  });
 };
 
 exports.rewards = (req, res) => {
-  const renderVars = {
-    section: 'rewards'
-  }
-  res.render('admin/rewards/index', renderVars);
+  Reward.find({}, (err, rewards) => {
+      if (err) { return next(err); }
+      res.render('admin/rewards/index', { section: 'rewards', rewards: rewards });
+  });
 };
 
 exports.settings = (req, res) => {

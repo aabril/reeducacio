@@ -5,4 +5,17 @@ block content
     .container-fluid
       .row
         .col-md-12
-          include ../partials/table-responsive
+          .card
+            .content.table-responsive.table-full-width
+              table.table.table-hover.table-striped
+                thead
+                  tr
+                    th title
+                    th Edit
+                tbody
+                  each article in articles
+                    tr
+                      td #{article.title}
+                      td(style="padding: 0 20px;") 
+                        a(href="/admin/article/"+article._id) 
+                          i.pe-7s-edit

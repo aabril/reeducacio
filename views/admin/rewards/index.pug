@@ -5,6 +5,17 @@ block content
     .container-fluid
       .row
         .col-md-12
-          include ../partials/table-responsive
-        .col-md-12.col-centered
-          include ../partials/pagination
+          .card
+            .content.table-responsive.table-full-width
+              table.table.table-hover.table-striped
+                thead
+                  tr
+                    th title
+                    th Edit
+                tbody
+                  each reward in rewards
+                    tr
+                      td #{reward.title}
+                      td(style="padding: 0 20px;") 
+                        a(href="/admin/rewards/"+reward._id) 
+                          i.pe-7s-edit
