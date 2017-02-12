@@ -66,16 +66,12 @@ exports.dashboard = (req, res) => {
     res.render('admin/dashboard/index', { section: 'dashboard'});
 };
 
-
 exports.users = (req, res) => {
   User.find({}, (err, users) => {
       if (err) { return next(err); }
-      // console.log(users);
-
       for (i = 0; i < users.length; i++) { 
         users[i].createdString = moment(users[i].createdAt).format('LLLL');
       }
-
       res.render('admin/users/index', { section: 'users', users: users });
   });
 };
@@ -83,9 +79,6 @@ exports.users = (req, res) => {
 exports.userEdit = (req, res) => {
   res.render('admin/users/edit', { section: 'users' });
 };
-
-
-
 
 exports.articles = (req, res) => {
   const renderVars = {

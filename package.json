@@ -9,11 +9,18 @@
   "author": "Sahat Yalkabov",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha --reporter spec"
+    "start": "npm run watch",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:static": "nodemon --watch config --watch controllers --watch models --watch app.js app.js",
+    "watch:react": "npm run panel:build",
+    "panel:build:babel": "babel --presets react,es2015 --plugins transform-react-jsx panel/app.js --out-file public/panel/bundle.js",
+    "panel:build": "webpack",
+    "test": "nps test"
   },
   "dependencies": {
     "async": "^2.1.2",
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.10",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",
@@ -55,19 +62,30 @@
     "passport-twitter": "^1.0.4",
     "paypal-rest-sdk": "^1.7.0",
     "pug": "^2.0.0-beta6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "request": "^2.78.0",
     "stripe": "^4.12.0",
     "tumblr.js": "^1.1.1",
     "twilio": "^3.3.1-edge",
     "twit": "^2.2.5",
-    "validator": "^6.1.0"
+    "validator": "^6.1.0",
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
     "chai": "^3.5.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.1.0",
     "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.1",
     "sinon": "^1.17.6",
     "sinon-mongoose": "^1.3.0",
     "supertest": "^2.0.1"
