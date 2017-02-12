@@ -1,9 +1,9 @@
 const passport = require('passport');
 const moment = require('moment');
 
-const User = require('../models/User');
-const Article = require('../models/Article');
-const Reward = require('../models/Reward');
+const User = require('../../models/User');
+const Article = require('../../models/Article');
+const Reward = require('../../models/Reward');
 
 exports.loginGet = (req, res) => {
   if(req.user && req.user.role==="admin"){
@@ -69,7 +69,10 @@ exports.dashboard = (req, res) => {
     res.render('admin/dashboard/index', { section: 'dashboard'});
 };
 
-exports.users = (req, res) => {
+
+// -- Users
+
+exports.userList = (req, res) => {
   User.find({}, (err, users) => {
       if (err) { return next(err); }
       for (i = 0; i < users.length; i++) { 
@@ -80,22 +83,79 @@ exports.users = (req, res) => {
 };
 
 exports.userEdit = (req, res) => {
-  res.render('admin/users/edit', { section: 'users' });
+  res.render('admin/users/edit', {});
 };
 
-exports.articles = (req, res) => {
+exports.userNewGet = (req, res) => {
+  res.render('admin/users/new', {});
+};
+
+exports.userNewPost = (req, res) => {
+  res.render('admin/users/new', {});
+};
+
+// -- Articles
+
+exports.articleList = (req, res) => {
   Article.find({}, (err, articles) => {
       if (err) { return next(err); }
-      res.render('admin/articles/index', { section: 'articles', articles: articles });
+
+      const renderVars = {
+        menu_section: "articles",
+        page_title: "» Articles",
+        articles: articles
+      };
+
+      res.render('admin/articles/index', renderVars);
   });
 };
 
-exports.rewards = (req, res) => {
+exports.articleEdit = (req, res) => {
+
+  const renderVars = {
+      menu_section: "articles",
+      page_title: "» Article » Edit"
+  };
+
+  res.render('admin/articles/edit', renderVars);
+};
+
+exports.articleNewGet = (req, res) => {
+
+  const renderVars = {
+      menu_section: "articles",
+      page_title: "» Article » New"
+  };
+
+  res.render('admin/articles/new', renderVars);
+};
+
+exports.articleNewPost = (req, res) => {
+  res.render('admin/articles/new', renderVars);
+};
+
+// -- Rewards
+
+exports.rewardList = (req, res) => {
   Reward.find({}, (err, rewards) => {
       if (err) { return next(err); }
       res.render('admin/rewards/index', { section: 'rewards', rewards: rewards });
   });
 };
+
+exports.rewardEdit = (req, res) => {
+  res.render('admin/rewards/edit', {});
+};
+
+exports.rewardNewGet = (req, res) => {
+  res.render('admin/rewards/new', {});
+};
+
+exports.rewardNewPost = (req, res) => {
+  res.render('admin/rewards/new', {});
+};
+
+// -- Settings
 
 exports.settings = (req, res) => {
   const renderVars = {

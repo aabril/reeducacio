@@ -25,10 +25,25 @@ module.exports = function(app){
 
     app.get('/admin', authService.isAdmin, adminController.dashboard);
     app.get('/admin/dashboard', authService.isAdmin, adminController.dashboard);
-    app.get('/admin/users', authService.isAdmin, adminController.users);
-    app.get('/admin/users/:id', authService.isAdmin, adminController.userEdit);
-    app.get('/admin/articles', authService.isAdmin, adminController.articles);
-    app.get('/admin/rewards', authService.isAdmin, adminController.rewards);
+
+    app.get('/admin/users', authService.isAdmin, adminController.userList);
+    app.get('/admin/user/list', authService.isAdmin, adminController.userList);
+    app.get('/admin/user/new', authService.isAdmin, adminController.userNewGet);
+    app.post('/admin/user/new', authService.isAdmin, adminController.userNewPost);
+    app.get('/admin/user/edit/:id', authService.isAdmin, adminController.userEdit);
+
+    app.get('/admin/articles', authService.isAdmin, adminController.articleList);
+    app.get('/admin/article/list', authService.isAdmin, adminController.articleList);
+    app.get('/admin/article/new', authService.isAdmin, adminController.articleNewGet);
+    app.post('/admin/article/new', authService.isAdmin, adminController.articleNewPost);
+    app.get('/admin/article/edit/:id', authService.isAdmin, adminController.articleEdit);
+
+    app.get('/admin/rewards', authService.isAdmin, adminController.rewardList);
+    app.get('/admin/reward/list', authService.isAdmin, adminController.rewardList);
+    app.get('/admin/rewards/new', authService.isAdmin, adminController.rewardNewGet);
+    app.post('/admin/rewards/new', authService.isAdmin, adminController.rewardNewPost);
+    app.get('/admin/rewards/edit/:id', authService.isAdmin, adminController.rewardEdit);
+
     app.get('/admin/settings', authService.isAdmin, adminController.settings);
 
     app.get('/admin/login', adminController.loginGet);
@@ -45,7 +60,6 @@ module.exports = function(app){
     app.post('/signup', userController.postSignup);
     app.get('/contact', contactController.getContact);
     app.post('/contact', contactController.postContact);
-
 
     app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
     app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
