@@ -15,26 +15,46 @@
  
  */
 
-@import "variables";
-@import "mixins";
+// -----------
 
-@import "typography";
+@import "_variables.css";
 
-// Core CSS
-@import "misc";
-@import "sidebar-and-main-panel";
-@import "buttons";
-@import "inputs";
+// @import "./mixins/_buttons.scss";
+// @import "./mixins/_cards.scss";
+// @import "./mixins/_chartist.scss";
+// @import "./mixins/_icons.scss";
+// @import "./mixins/_inputs.scss";
+// @import "./mixins/_labels.scss";
+// @import "./mixins/_morphing-buttons.scss";
+// @import "./mixins/_navbars.scss";
+// @import "./mixins/_social-buttons.scss";
+// @import "./mixins/_tabs.scss";
+// @import "./mixins/_transparency.scss";
+// @import "./mixins/_vendor-prefixes.scss";
 
-@import "alerts";
-@import "tables";
+// -----------
 
-@import "checkbox-radio-switch";
-@import "navbars";
-@import "footers";
+// @import "variables";
+// @import "mixins";
 
-// Fancy Stuff
-@import "dropdown";
-@import "cards";
-@import "chartist";
-@import "responsive";
+
+// @import "typography";
+
+// // Core CSS
+// @import "misc";
+// @import "sidebar-and-main-panel";
+// @import "buttons";
+// @import "inputs";
+
+// @import "alerts";
+// @import "tables";
+
+// @import "checkbox-radio-switch";
+// @import "navbars";
+// @import "footers";
+
+// // Fancy Stuff
+// @import "dropdown";
+// @import "cards";
+// @import "chartist";
+// @import "responsive";

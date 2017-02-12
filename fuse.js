@@ -1,17 +1,20 @@
 const fsbx = require("fuse-box");
 
+const panelSrcPath = "./panel/";
+const panelBundleFile = "./public/panel/bundle.min.js";
 
 // Create FuseBox Instance
 let fuseBox = new fsbx.FuseBox({
-    homeDir: "panel/",
-    sourceMap: {
-        bundleReference: "sourcemaps.js.map",
-        outFile: "./build/sourcemaps.js.map",
-    },
-    outFile: "./public/panel/bundle.js",
+    homeDir: panelSrcPath,
+    outFile: panelBundleFile,
+    cache: false,
     plugins: [
+        fsbx.SassPlugin({ 
+            // outputStyle: 'compressed' 
+        }),
+        fsbx.CSSPlugin({ write: true }),
         fsbx.SVGPlugin(),
-        fsbx.CSSPlugin(),
+        // fsbx.UglifyJSPlugin(),
         fsbx.BabelPlugin({
             config: {
                 sourceMaps: true,
@@ -24,4 +27,4 @@ let fuseBox = new fsbx.FuseBox({
     ]
 });
 
-fuseBox.bundle(">bundle.js");
+fuseBox.bundle(">index.js");
