@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'styles/main.scss';
+
 class Panel extends React.Component {
   render() {
     return (
@@ -7,6 +9,7 @@ class Panel extends React.Component {
     );
   }
 }
+
 ReactDOM.render(
   <Panel />,
   document.getElementById('panelApp')
