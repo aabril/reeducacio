@@ -2,9 +2,9 @@ const Reward = require('../../models/Reward');
 
 exports.list = (req, res) => {
   const renderVars = {
-      title: "Mecenes",
+      title: "Recompenses",
       nav_section: "rewards",
-      tab_title: "» Mecenes"
+      tab_title: "» Recompenses"
   };
   Reward.find({}, (err, rewards) => {
       if (err) { return next(err); }

@@ -3,10 +3,16 @@ extends ../layout
 block content
   .content
     .container-fluid
+
+      .row(style="margin-bottom:10px;")
+        .col-md-3.col-md-offset-9
+          a(href="/admin/user/new")
+            button.btn.btn-default.btn-block Afegir usuari
+
       .row
         .col-md-12
           .card
-            .content.table-responsive.table-full-width
+            .content.table-responsive.table-full-width(style="padding-top: 0px;")
               table.table.table-hover.table-striped
                 thead
                   tr
