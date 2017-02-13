@@ -3,23 +3,22 @@
 const Article = require('../../models/Article');
 
 exports.list = (req, res) => {
+  const renderVars = {
+      title: "Artices",
+      nav_section: "articles",
+      tab_title: "» Articles"
+  };
   Article.find({}, (err, articles) => {
       if (err) { return next(err); }
-
-      const renderVars = {
-        menu_section: "articles",
-        page_title: "» Articles",
-        articles: articles
-      };
-
-      res.render('admin/articles/index', renderVars);
+      renderVars.articles = articles;
+      res.render('admin/articles/list', renderVars);
   });
 };
 
 exports.edit = (req, res) => {
 
   const renderVars = {
-      menu_section: "articles",
+      nav_section: "articles",
       page_title: "» Article » Edit"
   };
 
@@ -29,7 +28,7 @@ exports.edit = (req, res) => {
 exports.getNew = (req, res) => {
 
   const renderVars = {
-      menu_section: "articles",
+      nav_section: "articles",
       page_title: "» Article » New"
   };
 

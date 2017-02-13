@@ -5,4 +5,68 @@ block content
     .container-fluid
       .row
         .col-md-12
-          h3 settings
+          .card
+            .header
+              h4.title Preferències
+            .content
+              form
+                .row
+                  .col-md-5
+                    .form-group
+                      label Company (disabled)
+                      |  
+                      input.form-control(type='text', disabled='', placeholder='Company', value='Creative Code Inc.')
+                  .col-md-3
+                    .form-group
+                      label Username
+                      |  
+                      input.form-control(type='text', placeholder='Username', value='michael23')
+                  .col-md-4
+                    .form-group
+                      label(for='exampleInputEmail1') Email address
+                      |  
+                      input.form-control(type='email', placeholder='Email')
+                .row
+                  .col-md-6
+                    .form-group
+                      label First Name
+                      |  
+                      input.form-control(type='text', placeholder='Company', value='Mike')
+                  .col-md-6
+                    .form-group
+                      label Last Name
+                      |  
+                      input.form-control(type='text', placeholder='Last Name', value='Andrew')
+                .row
+                  .col-md-12
+                    .form-group
+                      label Address
+                      |  
+                      input.form-control(type='text', placeholder='Home Address', value='Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09')
+                .row
+                  .col-md-4
+                    .form-group
+                      label City
+                      |  
+                      input.form-control(type='text', placeholder='City', value='Mike')
+                  .col-md-4
+                    .form-group
+                      label Country
+                      |  
+                      input.form-control(type='text', placeholder='Country', value='Andrew')
+                  .col-md-4
+                    .form-group
+                      label Postal Code
+                      |  
+                      input.form-control(type='number', placeholder='ZIP Code')
+                .row
+                  .col-md-12
+                    .form-group
+                      label About Me
+                      |  
+                      textarea.form-control(rows='5', placeholder='Here can be your description', value='Mike') Lamborghini Mercy, Your chick she so thirsty, I&apos;m in that two seat Lambo.
+                |  
+                button.btn.btn-info.btn-fill.pull-right(type='submit') Update Profile
+                .clearfix
+
+

@@ -23,8 +23,8 @@ module.exports = function(app){
      */
     app.get('/', homeController.index);
 
-    app.get('/admin', authService.isAdmin, adminController.dashboard);
-    app.get('/admin/dashboard', authService.isAdmin, adminController.dashboard);
+    app.get('/admin', authService.isAdmin, adminController.dashboard.get);
+    app.get('/admin/dashboard', authService.isAdmin, adminController.dashboard.get);
 
     app.get('/admin/users', authService.isAdmin, adminController.user.list);
     app.get('/admin/user/list', authService.isAdmin, adminController.user.list);
@@ -44,7 +44,7 @@ module.exports = function(app){
     app.post('/admin/rewards/new', authService.isAdmin, adminController.reward.postNew);
     app.get('/admin/rewards/edit/:id', authService.isAdmin, adminController.reward.edit);
 
-    app.get('/admin/settings', authService.isAdmin, adminController.settings);
+    app.get('/admin/settings', authService.isAdmin, adminController.settings.get);
 
     app.get('/admin/login', adminController.login.get);
     app.post('/admin/login', adminController.login.post);

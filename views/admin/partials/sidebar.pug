@@ -1,27 +1,25 @@
-- var sidebarBackground = adminBasePath+"img/children/01.jpg"
-
-.sidebar(data-color='purple', data-image=sidebarBackground)
+.sidebar(data-color='purple', data-image="/admin/img/children/01.jpg")
   .sidebar-wrapper
     .logo
       a.simple-text(href='/admin') REEDUCACIÓ
     ul.nav
-      li(class=(section=="dashboard" ? 'active' : ''))
-        a(href=adminBasePath+'dashboard')
+      li(class=(nav_section=="dashboard" ? 'active' : ''))
+        a(href='/admin/dashboard')
           i.pe-7s-graph
           p Panel
-      li(class=(section=="users" ? 'active' : ''))
-        a(href=adminBasePath+'users')
+      li(class=(nav_section=="users" ? 'active' : ''))
+        a(href='/admin/users')
           i.pe-7s-user
           p Usuaris
-      li(class=(section=="articles" ? 'active' : ''))
-        a(href=adminBasePath+'articles')
+      li(class=(nav_section=="articles" ? 'active' : ''))
+        a(href='/admin/articles')
           i.pe-7s-news-paper
           p Articles
-      li(class=(section=="rewards" ? 'active' : ''))
-        a(href=adminBasePath+'rewards')
+      li(class=(nav_section=="rewards" ? 'active' : ''))
+        a(href='/admin/rewards')
           i.pe-7s-science
           p Mecenes
-      li(class=(section=="settings" ? 'active' : ''))
-        a(href=adminBasePath+'settings')
+      li(class=(nav_section=="settings" ? 'active' : ''))
+        a(href='/admin/settings')
           i.pe-7s-tools
           p Configuració     

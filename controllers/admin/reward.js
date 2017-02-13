@@ -1,9 +1,15 @@
 const Reward = require('../../models/Reward');
 
 exports.list = (req, res) => {
+  const renderVars = {
+      title: "Mecenes",
+      nav_section: "rewards",
+      tab_title: "» Mecenes"
+  };
   Reward.find({}, (err, rewards) => {
       if (err) { return next(err); }
-      res.render('admin/rewards/index', { section: 'rewards', rewards: rewards });
+      renderVars.rewards = rewards;
+      res.render('admin/rewards/list', renderVars);
   });
 };
 
