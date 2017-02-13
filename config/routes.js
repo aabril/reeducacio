@@ -9,10 +9,10 @@ const upload = multer({ dest: path.join(__dirname, 'uploads') });
 /**
  * Controllers (route handlers).
  */
-const homeController = require('../controllers/home');
-const userController = require('../controllers/user');
-const apiController = require('../controllers/api');
-const contactController = require('../controllers/contact');
+const homeController = require('../controllers/site/home');
+const userController = require('../controllers/site/user');
+const apiController = require('../controllers/site/api');
+const contactController = require('../controllers/site/contact');
 const adminController = require('../controllers/admin');
 
 const authService = require('./authService');

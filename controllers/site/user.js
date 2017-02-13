@@ -2,7 +2,7 @@ const async = require('async');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
-const User = require('../models/User');
+const User = require('../../models/User');
 
 /**
  * GET /login
@@ -12,7 +12,7 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/login', {
+  res.render('site/account/login', {
     title: 'Login'
   });
 };
@@ -64,7 +64,7 @@ exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/signup', {
+  res.render('site/account/signup', {
     title: 'Create Account'
   });
 };
@@ -117,7 +117,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account/profile', {
+  res.render('site/account/profile', {
     title: 'Account Management'
   });
 };
@@ -232,7 +232,7 @@ exports.getReset = (req, res, next) => {
         req.flash('errors', { msg: 'Password reset token is invalid or has expired.' });
         return res.redirect('/forgot');
       }
-      res.render('account/reset', {
+      res.render('site/account/reset', {
         title: 'Password Reset'
       });
     });
@@ -308,7 +308,7 @@ exports.getForgot = (req, res) => {
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }
-  res.render('account/forgot', {
+  res.render('site/account/forgot', {
     title: 'Forgot Password'
   });
 };

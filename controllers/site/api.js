@@ -28,7 +28,7 @@ const foursquare = require('node-foursquare')({
  * List of API examples.
  */
 exports.getApi = (req, res) => {
-  res.render('api/index', {
+  res.render('site/api/index', {
     title: 'API Examples'
   });
 };
@@ -58,7 +58,7 @@ exports.getFoursquare = (req, res, next) => {
   },
   (err, results) => {
     if (err) { return next(err); }
-    res.render('api/foursquare', {
+    res.render('site/api/foursquare', {
       title: 'Foursquare API',
       trendingVenues: results.trendingVenues,
       venueDetail: results.venueDetail,
@@ -81,7 +81,7 @@ exports.getTumblr = (req, res, next) => {
   });
   client.posts('mmosdotcom.tumblr.com', { type: 'photo' }, (err, data) => {
     if (err) { return next(err); }
-    res.render('api/tumblr', {
+    res.render('site/api/tumblr', {
       title: 'Tumblr API',
       blog: data.blog,
       photoset: data.posts[0].photos
@@ -98,7 +98,7 @@ exports.getFacebook = (req, res, next) => {
   graph.setAccessToken(token.accessToken);
   graph.get(`${req.user.facebook}?fields=id,name,email,first_name,last_name,gender,link,locale,timezone`, (err, results) => {
     if (err) { return next(err); }
-    res.render('api/facebook', {
+    res.render('site/api/facebook', {
       title: 'Facebook API',
       profile: results
     });
@@ -117,7 +117,7 @@ exports.getScraping = (req, res, next) => {
     $('.title a[href^="http"], a[href^="https"]').each((index, element) => {
       links.push($(element));
     });
-    res.render('api/scraping', {
+    res.render('site/api/scraping', {
       title: 'Web Scraping',
       links
     });
@@ -132,7 +132,7 @@ exports.getGithub = (req, res, next) => {
   const github = new GitHub();
   github.repos.get({ user: 'sahat', repo: 'hackathon-starter' }, (err, repo) => {
     if (err) { return next(err); }
-    res.render('api/github', {
+    res.render('site/api/github', {
       title: 'GitHub API',
       repo
     });
@@ -144,7 +144,7 @@ exports.getGithub = (req, res, next) => {
  * Aviary image processing example.
  */
 exports.getAviary = (req, res) => {
-  res.render('api/aviary', {
+  res.render('site/api/aviary', {
     title: 'Aviary API'
   });
 };
@@ -164,7 +164,7 @@ exports.getNewYorkTimes = (req, res, next) => {
       return next(new Error('Invalid New York Times API Key'));
     }
     const books = JSON.parse(body).results;
-    res.render('api/nyt', {
+    res.render('site/api/nyt', {
       title: 'New York Times API',
       books
     });
@@ -233,7 +233,7 @@ exports.getLastfm = (req, res, next) => {
       topAlbums: results.artistTopAlbums,
       topTracks: results.artistTopTracks
     };
-    res.render('api/lastfm', {
+    res.render('site/api/lastfm', {
       title: 'Last.fm API',
       artist
     });
@@ -254,7 +254,7 @@ exports.getTwitter = (req, res, next) => {
   });
   T.get('search/tweets', { q: 'nodejs since:2013-01-01', geocode: '40.71448,-74.00598,5mi', count: 10 }, (err, reply) => {
     if (err) { return next(err); }
-    res.render('api/twitter', {
+    res.render('site/api/twitter', {
       title: 'Twitter API',
       tweets: reply.statuses
     });
@@ -328,7 +328,7 @@ exports.getSteam = (req, res, next) => {
   },
   (err, results) => {
     if (err) { return next(err); }
-    res.render('api/steam', {
+    res.render('site/api/steam', {
       title: 'Steam Web API',
       ownedGames: results.ownedGames.response.games,
       playerAchievemments: results.playerAchievements.playerstats,
@@ -342,7 +342,7 @@ exports.getSteam = (req, res, next) => {
  * Stripe API example.
  */
 exports.getStripe = (req, res) => {
-  res.render('api/stripe', {
+  res.render('site/api/stripe', {
     title: 'Stripe API',
     publishableKey: process.env.STRIPE_PKEY
   });
@@ -375,7 +375,7 @@ exports.postStripe = (req, res) => {
  * Twilio API example.
  */
 exports.getTwilio = (req, res) => {
-  res.render('api/twilio', {
+  res.render('site/api/twilio', {
     title: 'Twilio API'
   });
 };
@@ -412,7 +412,7 @@ exports.postTwilio = (req, res, next) => {
  * Clockwork SMS API example.
  */
 exports.getClockwork = (req, res) => {
-  res.render('api/clockwork', {
+  res.render('site/api/clockwork', {
     title: 'Clockwork SMS API'
   });
 };
@@ -443,7 +443,7 @@ exports.getLinkedin = (req, res, next) => {
   const linkedin = Linkedin.init(token.accessToken);
   linkedin.people.me((err, $in) => {
     if (err) { return next(err); }
-    res.render('api/linkedin', {
+    res.render('site/api/linkedin', {
       title: 'LinkedIn API',
       profile: $in
     });
@@ -481,7 +481,7 @@ exports.getInstagram = (req, res, next) => {
     }
   }, (err, results) => {
     if (err) { return next(err); }
-    res.render('api/instagram', {
+    res.render('site/api/instagram', {
       title: 'Instagram API',
       usernames: results.searchByUsername,
       userById: results.searchByUserId,
@@ -526,7 +526,7 @@ exports.getPayPal = (req, res, next) => {
     const links = payment.links;
     for (let i = 0; i < links.length; i++) {
       if (links[i].rel === 'approval_url') {
-        res.render('api/paypal', {
+        res.render('site/api/paypal', {
           approvalUrl: links[i].href
         });
       }
@@ -542,7 +542,7 @@ exports.getPayPalSuccess = (req, res) => {
   const paymentId = req.session.paymentId;
   const paymentDetails = { payer_id: req.query.PayerID };
   paypal.payment.execute(paymentId, paymentDetails, (err) => {
-    res.render('api/paypal', {
+    res.render('site/api/paypal', {
       result: true,
       success: !err
     });
@@ -555,7 +555,7 @@ exports.getPayPalSuccess = (req, res) => {
  */
 exports.getPayPalCancel = (req, res) => {
   req.session.paymentId = null;
-  res.render('api/paypal', {
+  res.render('site/api/paypal', {
     result: true,
     canceled: true
   });
@@ -568,7 +568,7 @@ exports.getPayPalCancel = (req, res) => {
 exports.getLob = (req, res, next) => {
   lob.routes.list({ zip_codes: ['10007'] }, (err, routes) => {
     if (err) { return next(err); }
-    res.render('api/lob', {
+    res.render('site/api/lob', {
       title: 'Lob API',
       routes: routes.data[0].routes
     });
@@ -581,7 +581,7 @@ exports.getLob = (req, res, next) => {
  */
 
 exports.getFileUpload = (req, res) => {
-  res.render('api/upload', {
+  res.render('site/api/upload', {
     title: 'File Upload'
   });
 };
@@ -599,7 +599,7 @@ exports.getPinterest = (req, res, next) => {
   const token = req.user.tokens.find(token => token.kind === 'pinterest');
   request.get({ url: 'https://api.pinterest.com/v1/me/boards/', qs: { access_token: token.accessToken }, json: true }, (err, request, body) => {
     if (err) { return next(err); }
-    res.render('api/pinterest', {
+    res.render('site/api/pinterest', {
       title: 'Pinterest API',
       boards: body.data
     });
@@ -642,7 +642,7 @@ exports.postPinterest = (req, res, next) => {
 };
 
 exports.getGoogleMaps = (req, res) => {
-  res.render('api/google-maps', {
+  res.render('site/api/google-maps', {
     title: 'Google Maps API'
   });
 };
