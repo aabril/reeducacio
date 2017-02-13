@@ -1,5 +1,35 @@
 extends layout
 
 block content
-  .row
-    include partials/home/content
+
+  .row(style="display: flex;")
+    .col-sm-7(style="align-items: stretch;")
+      .embed-responsive.embed-responsive-16by9(style="align-items: stretch;")
+        iframe.embed-responsive-item(src='https://www.youtube.com/embed/rKPjrnhYC5Y?rel=0&player=html5', frameborder='0', allowfullscreen='', style="align-items: stretch;")
+    .col-sm-5(style="border: 1px solid black; align-items: stretch;")
+      h2 Heading 
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, 
+      | tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+      | justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. 
+      | Donec sed odio dui. 
+      p 
+        a.btn.btn-default(href="/", role="button") View details &raquo;
+
+  .row(style="-border: 1px solid black; margin: 20px 0px 0px 0px;") 
+      .col-sm-7(style="padding:0px; margin:0px;")
+        h2 Heading 
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, 
+        | tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+        | justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. 
+        | Donec sed odio dui. 
+        p 
+          a.btn.btn-default(href="/", role="button") View details &raquo;
+      .col-sm-5
+        h2 Heading 
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, 
+        | tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+        | justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. 
+        | Donec sed odio dui. 
+        p 
+          a.btn.btn-default(href="/", role="button") View details &raquo;
+

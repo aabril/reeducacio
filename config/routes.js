@@ -17,10 +17,11 @@ const upload = multer(multerOptions);
 /**
  * Controllers (route handlers).
  */
-const homeController = require('../controllers/site/home');
+const homeController = require('../controllers/custom/home');
 const userController = require('../controllers/site/user');
 const apiController = require('../controllers/site/api');
 const contactController = require('../controllers/site/contact');
+
 const adminController = require('../controllers/admin');
 
 const authService = require('./authService');
