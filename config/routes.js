@@ -1,10 +1,18 @@
 const passportConfig = require('./passport');
 
 const path = require('path');
-
 const multer = require('multer');
-const upload = multer({ dest: path.join(__dirname, 'uploads') });
-
+const multerOptions = { 
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, path.join(__dirname, '../uploads'))
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.originalname);        
+        }
+    })
+};
+const upload = multer(multerOptions);
 
 /**
  * Controllers (route handlers).
