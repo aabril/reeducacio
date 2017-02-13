@@ -8,16 +8,15 @@ script(src='/admin/js/light-bootstrap-dashboard.js')
 script(src='/admin/js/demo.js')
 script(type='text/javascript').
   $(document).ready(function(){
-    var lastSegment = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-    if(lastSegment==="dashboard"){
+
+    var lastSegment = window.location.href;
+    if(lastSegment[lastSegment.length -1] === "/"){
+      lastSegment = lastSegment.substring(0, lastSegment.length - 1);
+    }
+    lastSegment = lastSegment.substr(lastSegment.lastIndexOf('/') + 1);
+
+    if(lastSegment==="dashboard" || lastSegment==="admin" ){
       demo.initChartist();    
     }
-    //- demo.initChartist();
-    //- $.notify({
-    //-     icon: 'pe-7s-gift',
-    //-     message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-    //-   },{
-    //-     type: 'info',
-    //-     timer: 4000
-    //- });
+
   });
