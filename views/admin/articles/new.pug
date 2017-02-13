@@ -5,4 +5,24 @@ block content
     .container-fluid
       .row
         .col-md-12
-          h2 new article
+          .card
+            .header
+              h4.title Crear Article
+            .content
+              form
+
+                .row
+                  .col-md-12
+                    .form-group
+                      label(for='exampleInputEmail1') Titol
+                      input.form-control(type='text', placeholder='titol')
+
+                .row
+                  .col-md-12
+                    .form-group
+                      label Text
+                      textarea.form-control(rows='5', placeholder="Aqui va el text de l'article'")
+
+
+                button.btn.btn-info.btn-fill.pull-right(type='submit') Crear
+                .clearfix

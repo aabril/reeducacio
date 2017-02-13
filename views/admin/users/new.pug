@@ -5,4 +5,43 @@ block content
     .container-fluid
       .row
         .col-md-12
-          h2 new user
+          .card
+            .header
+              h4.title Crear Nou Usuari
+            .content
+              form
+ 
+                .row
+                  .col-md-6
+                    .form-group
+                      label(for='exampleInputEmail1') Correu Electrònic
+                      input.form-control(type='email', placeholder='email')
+ 
+                .row
+                  .col-md-6
+                    .form-group
+                      label Nom
+                      input.form-control(type='text', placeholder='nom')
+                  .col-md-6
+                    .form-group
+                      label Cognoms
+                      input.form-control(type='text', placeholder='cognoms')
+
+                .row
+                  .col-md-6
+                    .form-group
+                      label Contrasenya
+                      input.form-control(type='password', placeholder='contrasenya')
+                  .col-md-6
+                    .form-group
+                      label Repetir Contrasenya
+                      input.form-control(type='password', placeholder='contrasenya')
+
+                .row
+                  .col-md-12
+                    .form-group
+                      label Notes
+                      textarea.form-control(rows='3', placeholder="Aqui va el text de l'article'")
+
+                button.btn.btn-info.btn-fill.pull-right(type='submit') Crear
+                .clearfix
