@@ -10,7 +10,9 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run watch",
-    "watch": "nodemon --watch config --watch controllers --watch models --watch app.js app.js",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:static": "nodemon --watch config --watch controllers --watch models --watch app.js app.js",
+    "watch:browsersync": "sleep 2; browser-sync start --port 3001 --proxy 'localhost:3000' --files 'views' 'public'",
     "test": "mocha --reporter spec"
   },
   "dependencies": {
@@ -66,6 +68,7 @@
     "validator": "^6.1.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "chai": "^3.5.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^11.0.0",
