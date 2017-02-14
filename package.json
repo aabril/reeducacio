@@ -10,10 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run watch",
-    "watch": "npm-run-all --parallel watch:*",
-    "watch:app": "nodemon --watch config --watch controllers --watch models --watch app.js app.js",
-    "watch:custom:styles": "nodemon --watch public/custom/styles --exec 'npm run custom:styles:build'",
-    "custom:styles:build": "lessc --clean-css public/custom/styles/main.less public/custom/styles/main.min.css",
+    "watch": "nodemon --watch config --watch controllers --watch models --watch app.js app.js",
     "test": "mocha --reporter spec"
   },
   "dependencies": {
@@ -37,6 +34,7 @@
     "github": "^7.2.0",
     "instagram-node": "^0.5.8",
     "lastfm": "^0.9.2",
+    "less-express": "^1.1.0",
     "lob": "^3.9.0",
     "lodash": "^4.16.6",
     "lusca": "^1.4.1",
