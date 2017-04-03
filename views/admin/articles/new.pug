@@ -9,19 +9,20 @@ block content
             .header
               h4.title Crear Article
             .content
-              form
+              form(action="/admin/article/new", method="post")
 
                 .row
                   .col-md-12
                     .form-group
+                      input(type='hidden', name='_csrf', value=_csrf)
                       label(for='exampleInputEmail1') Titol
-                      input.form-control(type='text', placeholder='titol')
+                      input.form-control(type='text', placeholder='titol', name="title")
 
                 .row
                   .col-md-12
                     .form-group
                       label Text
-                      textarea.form-control(rows='5', placeholder="Aqui va el text de l'article'")
+                      textarea.form-control(rows='5', placeholder="Aqui va el text de l'article'", name="text")
 
 
                 button.btn.btn-info.btn-fill.pull-right(type='submit') Crear

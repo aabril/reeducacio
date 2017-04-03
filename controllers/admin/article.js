@@ -36,5 +36,20 @@ exports.getNew = (req, res) => {
 };
 
 exports.postNew = (req, res) => {
-  res.render('admin/articles/new', renderVars);
+  const renderVars = {
+      nav_section: "articles",
+      page_title: "» Article » New"
+  };
+
+  const newUser = {
+    user: req.user._id,
+    title: req.body.title,
+    text: req.body.text
+  };
+
+  Article.create(newUser, function (err, small) {
+    if (err) return res.send(err);
+    res.redirect('/admin/articles');
+  });
+
 };

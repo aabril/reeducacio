@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
-  user: { type: String, unique: true },
+  user: { type: String },
   title: { type: String },
-  body: { type: String }
+  text: { type: String }
 }, { timestamps: true });
 
 const Article = mongoose.model('Article', articleSchema);
